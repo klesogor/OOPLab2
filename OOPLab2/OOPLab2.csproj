@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.11.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.11.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C21DA356-FCF5-4270-9B9F-457FC8C1177A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>OOPLab2</RootNamespace>
+    <AssemblyName>OOPLab2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq, Version=4.10.0.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.10.0\lib\net45\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\AllMakeVoiceCommand.cs" />
+    <Compile Include="Commands\CommandFactory.cs" />
+    <Compile Include="Commands\CreateAnimalCommand.cs" />
+    <Compile Include="Commands\CreateNewConcreteAnimal.cs" />
+    <Compile Include="Commands\DeleteAnimalCommand.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\GetAverageWeightCommand.cs" />
+    <Compile Include="Commands\GetAverageWieghtByTypeCommand.cs" />
+    <Compile Include="Commands\ListAllAnimalsCommand.cs" />
+    <Compile Include="Commands\MakeVoiceByNameCommand.cs" />
+    <Compile Include="Commands\SetTimeModeCommand.cs" />
+    <Compile Include="Entities\Animal.cs" />
+    <Compile Include="Entities\AnimalFactoryRandomizer.cs" />
+    <Compile Include="Entities\Bear.cs" />
+    <Compile Include="Entities\Factories\AnimalFactory.cs" />
+    <Compile Include="Entities\Factories\BearFactory.cs" />
+    <Compile Include="Entities\Factories\GiraffeFactory.cs" />
+    <Compile Include="Entities\Factories\WolfFactory.cs" />
+    <Compile Include="Entities\Giraffe.cs" />
+    <Compile Include="Entities\Wolf.cs" />
+    <Compile Include="Exceptions\AnimalNotFoundException.cs" />
+    <Compile Include="Exceptions\CommandException.cs" />
+    <Compile Include="Exceptions\DuplicatedNameOrIdException.cs" />
+    <Compile Include="Exceptions\ZeroOrNegativeAnimalWeightException.cs" />
+    <Compile Include="InteractionObject.cs" />
+    <Compile Include="IO\ConsoleLogger.cs" />
+    <Compile Include="IO\ILogger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AnimalCRUDService.cs" />
+    <Compile Include="Services\IAnimalCRUDService.cs" />
+    <Compile Include="Services\IBusinessService.cs" />
+    <Compile Include="Services\IWeightService.cs" />
+    <Compile Include="Services\IZooVoiceService.cs" />
+    <Compile Include="Services\Strategies\IVoiceStrategy.cs" />
+    <Compile Include="Services\Strategies\StrategyFactory.cs" />
+    <Compile Include="Services\Strategies\ZooDayVoiceStrategy.cs" />
+    <Compile Include="Services\Strategies\ZooNightVoiceStrategy.cs" />
+    <Compile Include="Services\WeightService.cs" />
+    <Compile Include="Services\ZooVoiceService.cs" />
+    <Compile Include="Storage\AnimalRepository.cs" />
+    <Compile Include="Storage\IRepository.cs" />
+    <Compile Include="Storage\Specifications\AndSpecification.cs" />
+    <Compile Include="Storage\Specifications\AnimalTypeSpecification.cs" />
+    <Compile Include="Storage\Specifications\ByIdSpecification.cs" />
+    <Compile Include="Storage\Specifications\ISpecification.cs" />
+    <Compile Include="Storage\Specifications\NameSpecification.cs" />
+    <Compile Include="Storage\Specifications\SpecificationAggregatesExtension.cs" />
+    <Compile Include="Tests\CrudServiceTest.cs" />
+    <Compile Include="Tests\RepositoryTest.cs" />
+    <Compile Include="Tests\VoiceServiceTest.cs" />
+    <Compile Include="Tests\WeightServiceTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\OOPLab1\InputParser\InputParser.csproj">
+      <Project>{4787bda4-80c4-4ef3-bb56-a122a92ba694}</Project>
+      <Name>InputParser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.11.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.11.0\build\net35\NUnit3TestAdapter.props'))" />
+  </Target>
+</Project>
