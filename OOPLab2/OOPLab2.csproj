@@ -87,6 +87,10 @@
     <Compile Include="Exceptions\CommandException.cs" />
     <Compile Include="Exceptions\DuplicatedNameOrIdException.cs" />
     <Compile Include="Exceptions\ZeroOrNegativeAnimalWeightException.cs" />
+    <Compile Include="InputParser\ICommand.cs" />
+    <Compile Include="InputParser\ICommandFactory.cs" />
+    <Compile Include="InputParser\IParser.cs" />
+    <Compile Include="InputParser\Parser.cs" />
     <Compile Include="InteractionObject.cs" />
     <Compile Include="IO\ConsoleLogger.cs" />
     <Compile Include="IO\ILogger.cs" />
@@ -119,12 +123,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\OOPLab1\InputParser\InputParser.csproj">
-      <Project>{4787bda4-80c4-4ef3-bb56-a122a92ba694}</Project>
-      <Name>InputParser</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

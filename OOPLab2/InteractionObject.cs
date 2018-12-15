@@ -4,10 +4,6 @@ using OOPLab2.IO;
 using OOPLab2.Services;
 using OOPLab2.Services.Strategies;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPLab2
 {
