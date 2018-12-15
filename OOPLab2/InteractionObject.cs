@@ -1,8 +1,10 @@
 ﻿using InputParser;
 using OOPLab2.Commands;
+using OOPLab2.Entities;
 using OOPLab2.IO;
 using OOPLab2.Services;
 using OOPLab2.Services.Strategies;
+using OOPLab2.Storage;
 using System;
 
 namespace OOPLab2
@@ -11,14 +13,16 @@ namespace OOPLab2
     {
         private readonly ILogger _logger;
         private readonly IParser _parser;
+        private readonly IRepository<Animal> _repo;
 
         public InteractionObject()
         {
+            _repo = new AnimalRepository();
             _logger = new ConsoleLogger();
             var factory = new CommandFactory(
-                new AnimalCRUDService(new Entities.AnimalFactoryRandomizer(_logger), _logger),
-                new ZooVoiceService(new ZooDayVoiceStrategy()),
-                new WeightService(_logger),
+                new AnimalCRUDService(new AnimalFactoryRandomizer(_logger), _logger, _repo),
+                new ZooVoiceService(new ZooDayVoiceStrategy(), _repo),
+                new WeightService(_logger, _repo),
                 _logger
             );
             _parser = new Parser(factory);

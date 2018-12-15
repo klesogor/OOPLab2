@@ -15,9 +15,9 @@ namespace OOPLab2.Services
         private readonly IRepository<Animal> _repository;
         private readonly ILogger _logger;
 
-        public WeightService(ILogger logger)
+        public WeightService(ILogger logger, IRepository<Animal> animals)
         {
-            _repository = AnimalRepository.GetInstance();
+            _repository = animals;
             _logger = logger;
         }
 

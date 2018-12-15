@@ -19,7 +19,7 @@ namespace OOPLab2.Tests
         [SetUp]
         public void SetUp()
         {
-            _repository = AnimalRepository.GetInstance();
+            _repository = new AnimalRepository();
 
             _stub = new Mock<ILogger>().Object;//empty mock, no logic
 
@@ -35,7 +35,6 @@ namespace OOPLab2.Tests
         [TearDown]
         public void TearDown()
         {
-            _repository.ClearRepository();
         }
 
         [Test]
