@@ -23,20 +23,21 @@ namespace OOPLab2.Tests
         [SetUp]
         public void SetUp()
         {
-            _repository = AnimalRepository.GetInstance();
+            _repository = new AnimalRepository();
 
-            _stub = new Mock<ILogger>().Object;//empty mock, no logic
+
+            _stub = new Mock<ILogger>().Object;
 
             var giraffe = new Giraffe("Giraffe 1", 100.1f, _stub);
             _existingAnimal = giraffe;
 
-            _service = new AnimalCRUDService(new AnimalFactoryRandomizer(_stub), _stub);
+            _service = new AnimalCRUDService(new AnimalFactoryRandomizer(_stub), _stub, _repository);
         }
 
         [TearDown]
         public void TearDown()
         {
-            _repository.ClearRepository();
+            
         }
 
         [Test]

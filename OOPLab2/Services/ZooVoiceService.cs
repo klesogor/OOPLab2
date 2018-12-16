@@ -18,10 +18,10 @@ namespace OOPLab2.Services
 
         public IVoiceStrategy VoiceStrategy { get;set; }
 
-        public ZooVoiceService(IVoiceStrategy voiceStrategy)
+        public ZooVoiceService(IVoiceStrategy voiceStrategy, IRepository<Animal> repository)
         {
             VoiceStrategy = voiceStrategy;
-            _repository = AnimalRepository.GetInstance();//we could potentially pass this as dependency, but I'm running out of time so I can't do it
+            _repository = repository;
         }
 
         public void AllZooMakeSound()
