@@ -10,15 +10,17 @@ namespace OOPLab2.Storage
 {
     public class AnimalRepository : IRepository<Animal>
     {
-        private static AnimalRepository _instance;
+        private readonly List<Animal> _repository;
 
-        private AnimalRepository()
+        public AnimalRepository(IEnumerable<Animal> animals = null)
+        {
+            _repository = new List<Animal>(animals);
+        }
+
+        public AnimalRepository()
         {
             _repository = new List<Animal>();
         }
-
-        private readonly List<Animal> _repository;
-
         public void AddItem(Animal item)
         {
             _repository.Add(item);
@@ -37,17 +39,6 @@ namespace OOPLab2.Storage
         public IEnumerable<Animal> GetBySpecification( ISpecification<Animal> spec)
         {
             return _repository.Where(x => spec.SatisfiedBy(x));
-        }
-
-        public static IRepository<Animal> GetInstance()
-        {
-            if (_instance == null) _instance = new AnimalRepository();
-            return _instance;
-        }
-
-        public void ClearRepository()
-        {
-            _repository.Clear();
         }
     }
 }

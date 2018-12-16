@@ -30,7 +30,8 @@ namespace OOPLab2.Tests
             [SetUp]
             public void SetUp()
             {
-                _repository = AnimalRepository.GetInstance();
+                _repository = new AnimalRepository();
+
 
                 _callCount = 0;
                 _mock = new Mock<ILogger>();
@@ -47,13 +48,13 @@ namespace OOPLab2.Tests
 
                 _factory = new StrategyFactory(_stub);
 
-                _service = new ZooVoiceService(_factory.CreateDayStrategy());
+                _service = new ZooVoiceService(_factory.CreateDayStrategy(), _repository);
             }
 
             [TearDown]
             public void TearDown()
             {
-                _repository.ClearRepository();
+              
             }
 
             [Test]

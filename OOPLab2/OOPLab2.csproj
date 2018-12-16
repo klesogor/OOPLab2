@@ -88,8 +88,8 @@
     <Compile Include="Exceptions\DuplicatedNameOrIdException.cs" />
     <Compile Include="Exceptions\ZeroOrNegativeAnimalWeightException.cs" />
     <Compile Include="InputParser\ICommand.cs" />
-    <Compile Include="InputParser\ICommandFactory.cs" />
     <Compile Include="InputParser\IParser.cs" />
+    <Compile Include="InputParser\IСommandFactory.cs" />
     <Compile Include="InputParser\Parser.cs" />
     <Compile Include="InteractionObject.cs" />
     <Compile Include="IO\ConsoleLogger.cs" />

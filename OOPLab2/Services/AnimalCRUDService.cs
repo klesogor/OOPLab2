@@ -18,9 +18,9 @@ namespace OOPLab2.Services
         private readonly AnimalFactoryRandomizer _randomizer;
         private readonly ILogger _logger;
 
-        public AnimalCRUDService(AnimalFactoryRandomizer randomizer, ILogger logger)
+        public AnimalCRUDService(AnimalFactoryRandomizer randomizer, ILogger logger, IRepository<Animal> animals)
         {
-            _repostiory = AnimalRepository.GetInstance();
+            _repostiory = animals;
             _randomizer = randomizer;
             _logger = logger;
         }

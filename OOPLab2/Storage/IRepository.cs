@@ -17,7 +17,5 @@ namespace OOPLab2.Storage
         IEnumerable<T> GetAll();
 
         IEnumerable<T> GetBySpecification(ISpecification<T> spec);
-
-        void ClearRepository();
     }
 }
